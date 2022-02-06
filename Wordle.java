@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner; 
 import java.util.ArrayList;
 
 public class Wordle{
@@ -10,7 +10,7 @@ public class Wordle{
         boolean gameEnded = false;
 
         ArrayList<String> guesses = new ArrayList<String>();
-        int guessCount = 0; 
+        int guessCount = 0;
 
         //get users name
         Scanner in = new Scanner(System.in);
@@ -37,17 +37,21 @@ public class Wordle{
         }
         if(guesses.get(guesses.size()-1).toUpperCase().equals(word)){
             System.out.println("CONGRADULATIONS!! YOU GOT THE ANSWER IN " + guessCount);
+        }else{
+            System.out.println("SORRY! YOU LOST. THE WORD IS " + word);
         }
-        in.close(); 
+        in.close();
     }
 
     public static boolean guessComp(String guess){
+        int count = 0;
         System.out.println("");
         for(int i=0; i<5; i++){
              if(word.charAt(i) == guess.toUpperCase().charAt(i)){
                 System.out.print(ANSI_GREEN + guess.toUpperCase().charAt(i) + ANSI_RESET);
             }else if(word.contains(String.valueOf(guess.toUpperCase().charAt(i)))){
                 System.out.print(ANSI_YELLOW + guess.toUpperCase().charAt(i) + ANSI_RESET);
+                count++;
             }else{
                 System.out.print(guess.toUpperCase().charAt(i));
             }
@@ -58,4 +62,12 @@ public class Wordle{
             return false;
         }
     }
-} 
+
+    public static void cont(String guess){
+        char letter[] = new char[5];
+        int num[] = new int[5];
+        for(int i = 0; i < 5; i++){
+            
+        }
+    }
+}
